@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-This gem offers find, search, post and delete operations for the 6 main entity types: People, Companies, Leads, Tasks, Opportunities & Projects. Additionally, it supports the basic create, find, and delete operations for webhooks.
+This gem offers basic operations to interact with the ProsperWorks Developer API. There is minimal error handling and no validation logic.
 
 To use the proper credentials, the following must be run before using the gem:
 
@@ -54,7 +54,7 @@ To interact with the ProsperWorks API, simply call the relevant entity type and 
 The following entity types are currently supported:
 * Person
 * Lead
-* Companuy
+* Company
 * Opportunity
 * Task
 * Project
@@ -86,16 +86,16 @@ This gem is fairly new, and can benefit from contributions!
 You can take a look at the [issues](https://github.com/soccernee/prosperworks-ruby/issues) and start by contributing there.
 
 Wishlist
-[] continuous integration setup
-[] add [Rubocop](https://github.com/bbatsov/rubocop)
-[] code cleanup & refactoring
-[] improved testing
-[] search endpoint
-[] Users API
-[] Activities API
-[] Related Items API
-[] Secondary Resources APIs
-[] Support for Nested Resources
+- [ ] continuous integration setup
+- [ ] add [Rubocop](https://github.com/bbatsov/rubocop)
+- [ ] code cleanup & refactoring
+- [ ] improved testing
+- [ ] search endpoint
+- [ ] Users API
+- [ ] Activities API
+- [ ] Related Items API
+- [ ] Secondary Resources APIs
+- [ ] Support for Nested Resources
 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/soccernee/prosperworks-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
