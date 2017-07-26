@@ -1,5 +1,4 @@
 require 'json'
-require 'json/add/core' # enables serializing of Time and other things
 
 module ProsperWorks
 
