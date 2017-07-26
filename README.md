@@ -1,4 +1,4 @@
-# Prosperworks::Ruby
+# ProsperWorks-Ruby
 
 A lightweight wrapper for interacting with the [ProsperWorks Developer API](https://www.prosperworks.com/developer_api).
 
@@ -32,23 +32,57 @@ ProsperWorks.configure do |config|
 end
 ```
 
-To interact with the ProsperWorks API, simply call the relevant entity type and operation:
+### Create
+
 ```
-  person = ProsperWorks::Person.find(id)
+person = ProsperWorks::Person.create(attributes)
 
-  person = ProsperWorks::Person.create(attributes)
+opportunity = ProsperWorks::Opportunity.create({
+  pipeline_id: <some_id>,
+  company_id: <another_id>,
+  monetary_value: 1_000
+})
 
-  #
-  # For update, either update the object in advance, or pass
-  # in a hash of attributes to update
-  #
-  person.name = "some new name"
-  response = ProsperWorks::Person.update(person)
-  # --- OR ---
-  response = ProsperWorks::Person.update(person, attributes)
+```
 
-  response = ProsperWorks::Person.delete(person.id)
+### Find
 
+```
+person = ProsperWorks::Person.find(id)
+
+lead = ProsperWorks::Lead.find(423)
+```
+
+### Update
+
+For update, either update the object in advance:
+
+```
+person.name = "A New Name"
+response = ProsperWorks::Person.update(person)
+```
+
+or pass in a hash of attributes to update:
+
+```
+attributes = {
+  name: "A New Name"
+}
+response = ProsperWorks::Person.update(person, attributes)
+
+```
+
+### Delete
+
+```
+response = ProsperWorks::Person.delete(person.id)
+
+```
+
+### List (webhooks only)
+
+```
+webhooks = ProsperWorks::Webhook.list
 ```
 
 The following entity types are currently supported:
@@ -59,17 +93,6 @@ The following entity types are currently supported:
 * Task
 * Project
 * Webhook
-
-The following operations are currently supported:
-* Create
-* Find
-* Update
-* Delete
-* List (only for webhooks)
-
-```
-webhooks = ProsperWorks::Webhook.list
-```
 
 The response will either be an instance of `ProsperWorks::Errors`, or the entity itself. See the `handle_response` function in [connect.rb](lib/prosperworks/api_operations/connect.rb).
 
@@ -99,6 +122,11 @@ Wishlist
 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/soccernee/prosperworks-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+To run the tests:
+```
+rake test
+```
 
 ## License
 
