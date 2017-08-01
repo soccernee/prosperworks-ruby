@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Neeraj Chandra"]
   spec.email         = ["nchandra324@gmail.com"]
 
-  spec.summary       = %q{A lightweight interface for the ProsperWorks Developer API}
+  spec.summary       = %q{A Ruby gem for the ProsperWorks Developer API}
   spec.description   = %q{A lightweight interface for the ProsperWorks Developer API}
   spec.homepage      = "https://rubygems.org/gems/prosperworks-ruby"
   spec.license       = "MIT"
