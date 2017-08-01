@@ -6,11 +6,10 @@ module ProsperWorks
   # Modified version of the Jsonable gem, all credit goes to the
   # authors of that gem
   #
-  module JSONable
+  module SerializeEntity
 
-    def to_json(*a)
+    def serialize_pw_entity(*a)
       result = {}
-      result['json_class'] = self.class.name
       self.instance_variables.each do |var|
         trimmed_var = var.to_s.gsub!("@", "")
         result[trimmed_var] = self.instance_variable_get var

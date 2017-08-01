@@ -1,6 +1,6 @@
 module ProsperWorks
   class Base
-    include ProsperWorks::JSONable
+    include ProsperWorks::SerializeEntity
 
     attr_accessor :id,
                   :date_created
