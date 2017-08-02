@@ -1,5 +1,6 @@
 module ProsperWorks
   class Lead < BaseEntity
+    extend ApiOperations::Search
 
     attr_accessor :address,
                   :company_name,

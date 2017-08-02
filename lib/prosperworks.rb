@@ -5,6 +5,7 @@ require 'prosperworks/api_operations/create'
 require 'prosperworks/api_operations/delete'
 require 'prosperworks/api_operations/find'
 require 'prosperworks/api_operations/list'
+require 'prosperworks/api_operations/search'
 require 'prosperworks/api_operations/update'
 
 require 'prosperworks/errors/base'

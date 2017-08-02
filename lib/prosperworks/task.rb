@@ -1,5 +1,6 @@
 module ProsperWorks
   class Task < BaseEntity
+    extend ApiOperations::Search
 
     attr_accessor :completed_date,
                   :due_date,
