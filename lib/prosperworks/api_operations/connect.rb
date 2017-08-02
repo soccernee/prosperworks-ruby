@@ -23,10 +23,10 @@ module ProsperWorks
             request = Net::HTTP::Get.new(uri.request_uri, headers)
           when "post"
             request = Net::HTTP::Post.new(uri.request_uri, headers)
-            request.body = entity.serialize_pw_entity
+            request.body = entity.to_json
           when "put"
             request = Net::HTTP::Put.new(uri.request_uri, headers)
-            request.body = entity.serialize_pw_entity
+            request.body = entity.to_json
           when "delete"
             request = Net::HTTP::Delete.new(uri.request_uri, headers)
           end

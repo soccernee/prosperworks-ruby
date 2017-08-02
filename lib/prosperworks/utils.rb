@@ -8,7 +8,7 @@ module ProsperWorks
   #
   module SerializeEntity
 
-    def serialize_pw_entity(*a)
+    def to_json(*a)
       result = {}
       self.instance_variables.each do |var|
         trimmed_var = var.to_s.gsub!("@", "")
