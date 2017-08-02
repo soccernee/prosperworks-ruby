@@ -6,15 +6,6 @@ require 'minitest/unit'
 require 'minitest/pride'
 require 'webmock/minitest'
 
-class Minitest::Test
-  def setup
-    ProsperWorks.configure do |config|
-      config.user_email = "test@test.test"
-      config.access_token = "123456789ABCDEFGHI"
-    end
-  end
-end
-
 module Helpers
 
   def headers
@@ -23,9 +14,7 @@ module Helpers
       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
       'Content-Type'=>'application/json',
       'User-Agent'=>'Ruby',
-      'X-Pw-AccessToken'=>'123456789ABCDEFGHI',
-      'X-Pw-Application'=>'developer_api',
-      'X-Pw-UserEmail'=>'test@test.test'
+      'X-Pw-Application'=>'developer_api'
     }
   end
 
