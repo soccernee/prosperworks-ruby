@@ -6,10 +6,10 @@ module ProsperWorks
 
     def headers
       {
-        "Content-Type": "application/json",
-        "X-PW-Application": "developer_api",
-        "X-PW-UserEmail": configuration.user_email,
-        "X-PW-AccessToken": configuration.access_token
+        "Content-Type" => "application/json",
+        "X-PW-Application" => "developer_api",
+        "X-PW-UserEmail" => configuration.user_email,
+        "X-PW-AccessToken" => configuration.access_token
       }
     end
 
