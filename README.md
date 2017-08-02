@@ -2,6 +2,7 @@
 
 A lightweight wrapper for interacting with the [ProsperWorks Developer API](https://www.prosperworks.com/developer_api).
 
+[![Build Status](https://travis-ci.org/soccernee/prosperworks-ruby.svg?branch=master)](https://travis-ci.org/soccernee/prosperworks-ruby)
 
 ## Installation
 
