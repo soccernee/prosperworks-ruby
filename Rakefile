@@ -14,6 +14,3 @@ desc 'Run rubocop'
 task :rubocop do
   RuboCop::RakeTask.new
 end
-
-
-task :default => [:rubocop, :test]
