@@ -5,9 +5,10 @@ module ProsperWorks
   module ApiOperations
     module Connect
 
-      def get_uri(api_name, id = nil)
+      def get_uri(api_name, id = nil, suffix = nil)
         url = client.base_url + "#{api_name}"
         url = url + "/#{id}" unless id.nil?
+        url = url + "/#{suffix}" unless suffix.nil?
         URI.parse(url)
       end
 
