@@ -215,7 +215,7 @@ module Helpers
       company_name: "ProsperWorks Inc.",
       contact_type_id: 1_100,
       details: "some details",
-      emails: [{"email":"test@test.test","category":"work"}],
+      emails: [{"email"=>"test@test.test","category"=>"work"}],
       phone_numbers: [],
       socials: [],
       tags: [],
