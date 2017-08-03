@@ -1,6 +1,5 @@
 module ProsperWorks
   class Opportunity < BaseEntity
-    extend ApiOperations::Search
 
     attr_accessor :close_date,
                   :company_id,

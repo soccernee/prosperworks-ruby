@@ -1,6 +1,5 @@
 module ProsperWorks
   class Person < BaseEntity
-    extend ApiOperations::Search
 
     attr_accessor :address,
                   :company_id,
