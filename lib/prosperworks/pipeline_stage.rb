@@ -1,5 +1,5 @@
 module ProsperWorks
-  class PipelineStage < BaseEntity
+  class PipelineStage < Base
     extend ApiOperations::List
 
     attr_accessor :name,
