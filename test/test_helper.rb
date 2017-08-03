@@ -7,7 +7,7 @@ require 'minitest/pride'
 require 'webmock/minitest'
 
 class Minitest::Test
-  def setup
+  def before_setup
     ProsperWorks.configure do |config|
       config.user_email = "test@test.test"
       config.access_token = "123456789ABCDEFGHI"
