@@ -15,6 +15,7 @@ module ProsperWorks
     extend ApiOperations::Delete
     extend ApiOperations::Find
     extend ApiOperations::Update
+    extend ApiOperations::Search
 
   end
 end
