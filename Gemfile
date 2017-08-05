@@ -9,7 +9,7 @@ end
 gemspec
 
 group :test do
+  gem 'minitest', '~> 5.0'
   gem 'rubocop', '~> 0.49.1', require: false
   gem 'webmock', '~> 3.0'
-  gem 'minitest', '~> 5.0'
 end
