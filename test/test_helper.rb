@@ -108,6 +108,57 @@ module Helpers
     }
   end
 
+  def company_search_result_details
+    [
+      {
+        id: 154053,
+        name: "123",
+        address: {street: nil, city: nil, state: nil, postal_code: nil, country: nil},
+        assignee_id: 1677,
+        contact_type_id: 431,
+        details: nil,
+        email_domain: "cabos.com",
+        phone_numbers: [],
+        socials: [
+          {url: "https://www.facebook.com/sss", category: "facebook"},
+          {url: "https://youtube.com/channel/sssTh3agHOe5hg", category: "youtube"},
+          {url: "https://instagram.com/sss", category: "other"}
+        ],
+        tags: [],
+        websites: [{url: "http://sss.com", category: "work"}],
+        custom_fields: [],
+        interaction_count: 16,
+        date_created: 1502911627,
+        date_modified: 1502991088
+      },
+      {
+        id: 1053,
+        name: "abc",
+        address: {street: nil, city: nil, state: nil, postal_code: nil, country: nil},
+        assignee_id: 1677,
+        contact_type_id: 431,
+        details: nil,
+        email_domain: "cabos.com",
+        phone_numbers: [],
+        socials: [
+          {url: "https://www.facebook.com/abc", category: "facebook"},
+          {url: "https://youtube.com/channel/sabc", category: "youtube"},
+          {url: "https://instagram.com/abc", category: "other"}
+        ],
+        tags: [],
+        websites: [{url: "http://abc.com", category: "work"}],
+        custom_fields: [],
+        interaction_count: 16,
+        date_created: 1502911627,
+        date_modified: 1502991088
+      }
+    ]
+  end
+
+  def company_search_results_payload
+    JSON.generate(company_search_result_details)
+  end
+
   def lead_payload
     JSON.generate(lead_details)
   end
