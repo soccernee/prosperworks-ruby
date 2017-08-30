@@ -27,10 +27,9 @@ module ProsperWorks
     def self.find_by_email(email)
       uri = get_uri(api_name, 'fetch_by_email')
 
-      response = send_request("post", uri, {email: email})
-      handle_response(self.new, response)
+      response = send_request("post", uri, email: email)
+      handle_response(new, response)
     end
-
 
   end
 end
