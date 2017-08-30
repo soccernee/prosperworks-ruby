@@ -5,7 +5,7 @@ class CompanyTest < Minitest::Test
 
   def verify_response(expected, company)
     assert company.is_a?(ProsperWorks::Company)
-    assert_equal @id, company.id
+    assert_equal expected[:id], company.id
     assert_equal expected.keys.length, company.instance_variables.length
 
     expected.each do |key, value|
