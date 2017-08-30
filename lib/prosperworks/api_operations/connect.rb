@@ -73,7 +73,7 @@ module ProsperWorks
           result
         else
           result.map do |res|
-            self.new(res)
+            new(res)
           end
         end
       end

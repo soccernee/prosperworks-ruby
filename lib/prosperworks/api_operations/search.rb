@@ -4,7 +4,7 @@ module ProsperWorks
 
       include ApiOperations::Connect
 
-      def search(params={})
+      def search(params = {})
         uri = get_uri(api_name, 'search')
 
         response = send_request("post", uri, params)
