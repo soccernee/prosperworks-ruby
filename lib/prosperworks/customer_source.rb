@@ -1,5 +1,5 @@
 module ProsperWorks
-  class CustomerSource  < Base
+  class CustomerSource < Base
     extend ApiOperations::List
 
     attr_accessor :name
