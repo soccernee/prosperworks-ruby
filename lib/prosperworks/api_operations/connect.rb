@@ -66,6 +66,17 @@ module ProsperWorks
         end
       end
 
+      def handle_multiple_response(response)
+        result = handle_response(nil, response)
+        if result.is_a?(ProsperWorks::Errors)
+          # pass the error along
+          result
+        else
+          result.map do |res|
+            new(res)
+          end
+        end
+      end
     end
   end
 end

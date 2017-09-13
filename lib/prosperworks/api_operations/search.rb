@@ -1,15 +1,13 @@
-require 'net/http'
-
 module ProsperWorks
   module ApiOperations
-    module List
+    module Search
 
       include ApiOperations::Connect
 
-      def list
-        uri = get_uri(api_name)
+      def search(params = {})
+        uri = get_uri(api_name, 'search')
 
-        response = send_request("get", uri)
+        response = send_request("post", uri, params)
         handle_multiple_response(response)
       end
 

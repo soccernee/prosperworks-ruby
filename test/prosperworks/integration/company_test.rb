@@ -5,7 +5,7 @@ class CompanyTest < Minitest::Test
 
   def verify_response(expected, company)
     assert company.is_a?(ProsperWorks::Company)
-    assert_equal @id, company.id
+    assert_equal expected[:id], company.id
     assert_equal expected.keys.length, company.instance_variables.length
 
     expected.each do |key, value|
@@ -22,6 +22,7 @@ class CompanyTest < Minitest::Test
     @id = company_details[:id]
     @single_resource_url = get_uri(ProsperWorks::Company.api_name, @id)
     @create_url = get_uri(ProsperWorks::Company.api_name)
+    @search_url = get_uri(ProsperWorks::Company.api_name, 'search')
   end
 
   def test_company_get
@@ -29,6 +30,16 @@ class CompanyTest < Minitest::Test
 
     company = ProsperWorks::Company.find(@id)
     verify_response(company_details, company)
+  end
+
+  def test_company_search
+    stub_request(:post, @search_url).with(headers: headers)
+                                    .to_return(status: 200, body: company_search_results_payload)
+
+    companies = ProsperWorks::Company.search
+    company_search_result_details.zip(companies).each do |company_details, company|
+      verify_response(company_details, company)
+    end
   end
 
   def test_company_create
