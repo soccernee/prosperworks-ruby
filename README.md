@@ -79,29 +79,40 @@ response = ProsperWorks::Person.update(person, attributes)
 response = ProsperWorks::Person.delete(person.id)
 
 ```
+### Search
 
-### List (webhooks only)
+```
+response = ProsperWorks::Person.search(name: "John Doe")
+```
+
+### List
 
 ```
 webhooks = ProsperWorks::Webhook.list
 ```
 
-The following entity types are currently supported:
+The following entity types are currently supported for create, find, update, delete and search:
 * Person
 * Lead
 * Company
 * Opportunity
 * Task
 * Project
+
+The following entity types are currently supported for list:
+* Customer Source
+* Pipeline
+* Pipeline Stage
 * Webhook
 
 The response will either be an instance of `ProsperWorks::Errors`, or the entity itself. See the `handle_response` function in [connect.rb](lib/prosperworks/api_operations/connect.rb).
+
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
@@ -110,11 +121,11 @@ This gem is fairly new, and can benefit from contributions!
 You can take a look at the [issues](https://github.com/soccernee/prosperworks-ruby/issues) and start by contributing there.
 
 Wishlist
-- [ ] continuous integration setup
-- [ ] add [Rubocop](https://github.com/bbatsov/rubocop)
+- [X] continuous integration setup
+- [X] add [Rubocop](https://github.com/bbatsov/rubocop)
 - [ ] code cleanup & refactoring
 - [ ] improved testing
-- [ ] search endpoint
+- [X] search endpoint
 - [ ] Users API
 - [ ] Activities API
 - [ ] Related Items API
