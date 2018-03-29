@@ -2,13 +2,18 @@
 
 require "bundler/setup"
 require "prosperworks"
-
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
-
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
-
 require "irb"
+
+credential_filename = '.pw_credentials.txt'
+if File.file?(credential_filename)
+  contents     = (File.read(credential_filename) || "").split(/\n/)
+  user_email   = contents[0] if contents.length > 0
+  access_token = contents[1] if contents.length > 1
+end
+
+ProsperWorks.configure do |config|
+  config.user_email = (ENV['USER_EMAIL'] || user_email)
+  config.access_token = (ENV['ACCESS_TOKEN'] || access_token)
+end
+
 IRB.start(__FILE__)
