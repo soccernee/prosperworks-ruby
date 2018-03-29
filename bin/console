@@ -7,7 +7,7 @@ require "irb"
 credential_filename = '.pw_credentials.txt'
 if File.file?(credential_filename)
   contents     = (File.read(credential_filename) || "").split(/\n/)
-  user_email   = contents[0] if contents.length > 0
+  user_email   = contents[0] unless contents.empty?
   access_token = contents[1] if contents.length > 1
 end
 
