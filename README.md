@@ -110,7 +110,19 @@ The response will either be an instance of `ProsperWorks::Errors`, or the entity
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive Ruby shell.
+
+### `bin/console`
+
+To use the gem in an interactive Ruby shell, you can run `bin/console`. To include your ProsperWorks API credentials (`user_name` and `access_token`) you can either:
+
+1. Use ENV variables:
+```
+USER_EMAIL=<your_email> ACCESS_TOKEN=<your_access_token> bin/console
+```
+2. Store them in a text file named `.pw_credentials.txt` in the root directory of this repository. The first line must be your user_email and the second line must be your access_token. Nothing else may be in this file. At startup, `bin/console` will read and use these values. And this file *must not* be checked into git; it has been included in `.gitignore` for this very reason.
+
+### Local Installation
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
