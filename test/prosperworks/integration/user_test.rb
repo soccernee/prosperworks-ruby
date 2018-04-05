@@ -48,8 +48,8 @@ class UserTest < Minitest::Test
     }
 
     user = ProsperWorks::User.new(initial_attributes)
-    assert_equal initial_attributes[:name], user.name
-    assert_equal initial_attributes[:pipeline_id], user.pipeline_id
+    assert_equal initial_attributes[:username], user.username
+    assert_equal initial_attributes[:email], user.email
 
     response = ProsperWorks::User.update(user, user_details)
     verify_response(user_details, user)
