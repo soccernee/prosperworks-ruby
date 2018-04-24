@@ -33,6 +33,8 @@ require 'prosperworks/project'
 require 'prosperworks/task'
 require 'prosperworks/version'
 require 'prosperworks/webhook'
+require 'prosperworks/activity'
+require 'prosperworks/activity_type'
 
 module ProsperWorks
 
