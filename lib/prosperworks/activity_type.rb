@@ -1,11 +1,15 @@
 module ProsperWorks
   class ActivityType < BaseEntity
+    attr_accessor :id,
+                  :name,
+                  :category
+
     def self.api_name
       "activity_types"
     end
 
-    # We override the list method because the response is a hash where
-    # the values are arrays
+    # Note: We override the list method because the response is a hash where
+    # the values are arrays. And we want only the elements of the arrays
     def self.list
       uri = get_uri(api_name)
       response = send_request("get", uri)
