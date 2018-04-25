@@ -8,8 +8,10 @@ module ProsperWorks
       "activity_types"
     end
 
-    # Note: We override the list method because the response is a hash where
-    # the values are arrays. And we want only the elements of the arrays
+    # Note: We don't extend ApiOperations::List because the response body of this resource
+    # is a hash where the keys are the categories and the values (arrays) are the activity types,
+    # and we only want the activity types (the category is also and attr of the activity type).
+    # So, we only grab the arrays and flatten them.
     def self.list
       uri = get_uri(api_name)
       response = send_request("get", uri)
