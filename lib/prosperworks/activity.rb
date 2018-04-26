@@ -2,7 +2,8 @@ module ProsperWorks
   class Activity < BaseEntity
     attr_accessor :id,
                   :name,
-                  :type
+                  :type,
+                  :parent
 
     def self.api_name
       "activities"
