@@ -6,13 +6,10 @@ module ProsperWorks
 
       include ApiOperations::Connect
 
-        entity.set_attributes(attributes)
-        id = entity.id
       def update(entity, attributes = {})
+        uri = get_uri(api_name, entity.id)
 
-        uri = get_uri(api_name, id)
-
-        response = send_request("put", uri, entity)
+        response = send_request("put", uri, attributes)
         handle_response(self.new, response)
       end
 
