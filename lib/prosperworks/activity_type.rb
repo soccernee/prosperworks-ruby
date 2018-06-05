@@ -20,7 +20,7 @@ module ProsperWorks
       when 200
         json_object = JSON.parse(response.body)
         json_object.values.flatten.map do |res|
-          self.new(res)
+          new(res)
         end
       else
         return handle_response(nil, response)
