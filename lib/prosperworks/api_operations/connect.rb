@@ -42,7 +42,6 @@ module ProsperWorks
           json_object = JSON.parse(response.body)
           return json_object if json_object.is_a?(Array)
 
-
           json_object.each_pair do |key, value|
             if entity.respond_to?(key.to_sym)
               entity.send("#{key}=", value)
