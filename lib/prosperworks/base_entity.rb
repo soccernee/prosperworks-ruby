@@ -1,7 +1,13 @@
 module ProsperWorks
   class BaseEntity < Base
-
-    # used for the 6 main entity types
+    #
+    # Specialized base class, only to be used for the 6 main entity types:
+    #   company
+    #   lead
+    #   opportunity
+    #   person
+    #   project
+    #   task
 
     attr_accessor :assignee_id,
                   :custom_fields,

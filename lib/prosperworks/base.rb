@@ -1,6 +1,11 @@
 module ProsperWorks
   class Base
     include ProsperWorks::SerializeEntity
+    #
+    # Generalized base class, all ProsperWorks objects
+    # should inherit from this (directly or indirectly,
+    # via BaseEntity)
+    #
 
     attr_accessor :id,
                   :date_created
