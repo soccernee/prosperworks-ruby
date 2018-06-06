@@ -1,5 +1,5 @@
 module ProsperWorks
-  class LossReason < BaseEntity
+  class LossReason < Base
     extend ApiOperations::List
 
     attr_accessor :id,
