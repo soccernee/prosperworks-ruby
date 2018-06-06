@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ConnectTest < Minitest::Test
-  include Helpers  
+  include Helpers
 
   def test_get_uri
     # get_uri is aliased in Helpers
@@ -9,61 +9,60 @@ class ConnectTest < Minitest::Test
 
     assert_equal "https://api.prosperworks.com/developer_api/v1/test_api/14", uri.to_s
   end
-  
-  def bad_request_response
+
+  def test_bad_request_response
     id = 2
-    url = get_uri(ProsperWorks::Contact.api_name, id)
+    url = get_uri(ProsperWorks::Person.api_name, id)
     stub_request(:get, url).with(headers: headers).to_return(status: 400, body: "")
 
-    assert_equal Errors::BadRequest, ProsperWorks::Contact.find(id)
+    assert ProsperWorks::Person.find(id).is_a?(ProsperWorks::Errors::BadRequest)
   end
 
-  def forbidden_response
+  def test_forbidden_response
     id = 2
-    url = get_uri(ProsperWorks::Contact.api_name, id)
-    stub_request(:get, url).with(headers: headers).to_return(status: 401, body: "")
+    url = get_uri(ProsperWorks::Person.api_name, id)
+    stub_request(:get, url).with(headers: headers).to_return(status: 403, body: "")
 
-    assert_equal Errors::Forbidden, ProsperWorks::Contact.find(id)
+    assert ProsperWorks::Person.find(id).is_a?(ProsperWorks::Errors::Forbidden)
   end
 
-  def not_found_response
+  def test_not_found_response
     id = 2
-    url = get_uri(ProsperWorks::Contact.api_name, id)
+    url = get_uri(ProsperWorks::Person.api_name, id)
     stub_request(:get, url).with(headers: headers).to_return(status: 404, body: "")
 
-    assert_equal Errors::NotFound, ProsperWorks::Contact.find(id)
+    assert ProsperWorks::Person.find(id).is_a?(ProsperWorks::Errors::NotFound)
   end
 
-  def rate_limit_response
+  def test_rate_limit_response
     id = 2
-    url = get_uri(ProsperWorks::Contact.api_name, id)
+    url = get_uri(ProsperWorks::Person.api_name, id)
     stub_request(:get, url).with(headers: headers).to_return(status: 429, body: "")
 
-    assert_equal Errors::RateLimit, ProsperWorks::Contact.find(id)
+    assert ProsperWorks::Person.find(id).is_a?(ProsperWorks::Errors::RateLimit)
   end
 
-  def server_error_response
+  def test_server_error_response
     id = 2
-    url = get_uri(ProsperWorks::Contact.api_name, id)
+    url = get_uri(ProsperWorks::Person.api_name, id)
     stub_request(:get, url).with(headers: headers).to_return(status: 500, body: "")
 
-    assert_equal Errors::ServerError, ProsperWorks::Contact.find(id)
+    assert ProsperWorks::Person.find(id).is_a?(ProsperWorks::Errors::ServerError)
   end
 
-  def unauthorized_response
+  def test_unauthorized_response
     id = 2
-    url = get_uri(ProsperWorks::Contact.api_name, id)
+    url = get_uri(ProsperWorks::Person.api_name, id)
     stub_request(:get, url).with(headers: headers).to_return(status: 401, body: "")
 
-    assert_equal Errors::Unauthorized, ProsperWorks::Contact.find(id)
+    assert ProsperWorks::Person.find(id).is_a?(ProsperWorks::Errors::Unauthorized)
   end
 
-  def unprocessable_response
+  def test_unprocessable_response
     id = 2
-    url = get_uri(ProsperWorks::Contact.api_name, id)
-    stub_request(:get, url).with(headers: headers).to_return(status: 429, body: "")
+    url = get_uri(ProsperWorks::Person.api_name, id)
+    stub_request(:get, url).with(headers: headers).to_return(status: 422, body: "")
 
-    assert_equal Errors::Unprocessable, ProsperWorks::Contact.find(id)
+    assert ProsperWorks::Person.find(id).is_a?(ProsperWorks::Errors::Unprocessable)
   end
-
 end

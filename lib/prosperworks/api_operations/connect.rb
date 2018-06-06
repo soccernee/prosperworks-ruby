@@ -42,7 +42,6 @@ module ProsperWorks
           json_object = JSON.parse(response.body)
           return json_object if json_object.is_a?(Array)
 
-
           json_object.each_pair do |key, value|
             if entity.respond_to?(key.to_sym)
               entity.send("#{key}=", value)
@@ -50,25 +49,25 @@ module ProsperWorks
           end
           entity
         when Errors::BadRequest.status_code
-          Errors::BadRequest
+          Errors::BadRequest.new
         when Errors::Unauthorized.status_code
-          Errors::Unauthorized
+          Errors::Unauthorized.new
         when Errors::Forbidden.status_code
-          Errors::Forbidden
+          Errors::Forbidden.new
         when Errors::NotFound.status_code
-          Errors::NotFound
+          Errors::NotFound.new
         when Errors::Unprocessable.status_code
-          Errors::Unprocessable
+          Errors::Unprocessable.new
         when Errors::RateLimit.status_code
-          Errors::RateLimit
+          Errors::RateLimit.new
         else
-          Errors::ServerError
+          Errors::ServerError.new
         end
       end
 
       def handle_multiple_response(response)
         result = handle_response(nil, response)
-        if result.is_a?(ProsperWorks::Errors)
+        if result.is_a?(ProsperWorks::Errors::Base)
           # pass the error along
           result
         else
