@@ -34,6 +34,7 @@ require 'prosperworks/task'
 require 'prosperworks/version'
 require 'prosperworks/webhook'
 require 'prosperworks/loss_reason'
+require 'prosperworks/custom_field_definition'
 
 module ProsperWorks
 
