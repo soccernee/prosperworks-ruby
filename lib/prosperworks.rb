@@ -35,6 +35,7 @@ require 'prosperworks/version'
 require 'prosperworks/webhook'
 require 'prosperworks/loss_reason'
 require 'prosperworks/custom_field_definition'
+require 'prosperworks/related_link'
 
 module ProsperWorks
 
