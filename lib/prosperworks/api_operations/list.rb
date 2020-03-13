@@ -6,8 +6,9 @@ module ProsperWorks
 
       include ApiOperations::Connect
 
-      def list
+      def list(query_params = {})
         uri = get_uri(api_name)
+        uri.query = URI.encode_www_form(query_params)
 
         response = send_request("get", uri)
         handle_multiple_response(response)
