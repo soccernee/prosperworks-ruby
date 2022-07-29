@@ -3,7 +3,7 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   DisplayCopNames: true
 
-Metric/AbcSize:
+Metrics/AbcSize:
   Max: 25
 
 Layout/EmptyLinesAroundModuleBody:
